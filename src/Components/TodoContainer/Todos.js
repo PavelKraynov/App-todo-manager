@@ -8,7 +8,7 @@ const Todos = () => {
     <div className="create-todos-container">
       <DoContainer />
     </div>
-  )
+  );
 };
 
 export default Todos;

@@ -1,0 +1,25 @@
+.root-create-forAdd {
+  display: flex;
+  justify-content: center;
+}
+
+.root-create-forAdd__button {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: end;
+  margin-top: 30px;
+}
+.root-create-forAdd__button--size--color {
+  background: #fdff9d;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+}
+
+.root-create-forAdd__window {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  border-radius: 1rem;
+}
