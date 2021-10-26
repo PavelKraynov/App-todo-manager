@@ -12,20 +12,21 @@ const DoContainer = () => {
     dispatch(removeCurrentText(removeText));
   };
   return (
-    <div className="do-wrapper">
+    <div className="todo-wrapper">
+      TO-DO
       {arrayOfTasks.length > 0 ? (
-        <div className="do-wrapper-tasks">
+        <div className="todo-wrapper-tasks">
           {arrayOfTasks.map((task) => {
             return (
-              <div key={task.id} className="do-wrapper-tasks__content">
-                <div className="do-wrapper-tasks__text-container">
-                  <span className="do-wrapper-tasks__text-date">
+              <div key={task.id} className="todo-wrapper-tasks__content">
+                <div className="todo-wrapper-tasks__text-container">
+                  <span className="todo-wrapper-tasks__text-date">
                     {task.date.split(" ")[3]} {task.date.split(" ")[4]}
                   </span>
-                  <span className="do-wrapper-tasks__text">{task.text}</span>
+                  <span className="todo-wrapper-tasks__text">{task.text}</span>
                 </div>
                 <button
-                  className="do-wrapper-tasks__button-delete "
+                  className="todo-wrapper-tasks__button-delete "
                   onClick={() => removeTask(task)}
                   type="button"
                 >
@@ -36,7 +37,7 @@ const DoContainer = () => {
           })}
         </div>
       ) : (
-        <div>Please create task =)</div>
+        <div className = "todo-wrapper-empty">empty</div>
       )}
     </div>
   );

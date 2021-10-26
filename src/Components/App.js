@@ -1,5 +1,5 @@
 import Todos from "./TodoContainer/Todos"
-import ButtotAndInputForNewTodo from './AddNewtTodoList/ToogledButtonAddNewTask/ToogledButtonAddNewTask'
+import ButtotAndInputForNewTodo from './AddNewTodoList/ToogledButtonAddNewTask/ToogledButtonAddNewTask'
 import './App.css'
 
 const App = () => {

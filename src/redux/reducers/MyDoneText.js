@@ -1,15 +1,15 @@
 import { nanoid } from "nanoid";
 
 const INPUT_TEXT = "INPUT_TEXT";
-const ADD_TASK = "ADD_TASK";
-const REMOVE_TASK = "REMOVE_TASK"
+const ADD_DONE_TASK = "ADD_DONE_TASK";
+const REMOVE_DONE_TASK = "REMOVE_DONE_TASK";
 
 const initialState = {
   text: "",
-  arrayOfTasks: [],
+  arrayOfDoneTasks: [],
 };
 
-const myTodoText = (state = initialState, action) => {
+const myDoingText = (state = initialState, action) => {
   switch (action.type) {
     case INPUT_TEXT: {
       return {
@@ -17,16 +17,16 @@ const myTodoText = (state = initialState, action) => {
         text: action.typeText,
       };
     }
-    case ADD_TASK: {
+    case ADD_DONE_TASK: {
       return {
         ...state,
-        arrayOfTasks: [...state.arrayOfTasks, action.taskWithData],
+        arrayOfDoneTasks: [...state.arrayOfDoneTasks, action.taskWithData],
       };
     }
-    case REMOVE_TASK: {
+    case REMOVE_DONE_TASK: {
       return {
         ...state,
-        arrayOfTasks: action.filteredArray,
+        arrayOfDoneTasks: action.filteredArray,
       };
     }
     default:
@@ -36,7 +36,7 @@ const myTodoText = (state = initialState, action) => {
 export function inputNewTextFunc(typeText) {
   return { type: INPUT_TEXT, typeText };
 }
-export function addInputTextToDo(newTask) {
+export function addInputTextDone(newTask) {
   const setDate = () => {
     const date = new Date();
     const options = {
@@ -52,13 +52,13 @@ export function addInputTextToDo(newTask) {
   };
 
   return {
-    type: ADD_TASK,
+    type: ADD_DONE_TASK,
     taskWithData: { id: nanoid(), text: newTask, date: setDate() },
   };
 }
 
 export function removeCurrentText(filteredArray) {
-  return { type: REMOVE_TASK, filteredArray };
+  return { type: REMOVE_DONE_TASK, filteredArray };
 }
 
-export default myTodoText;
+export default myDoingText;
