@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import "./DoContainer.css";
 
 import { removeToDoCurrentText } from "../../../redux/reducers/MyTodoText";
-import { addInputTextDoing } from '../../../redux/reducers/MyDoingText'
-import { addInputTextDone } from '../../../redux/reducers/MyDoneText'
+import { addInputTextDoing } from "../../../redux/reducers/MyDoingText";
+import { addInputTextDone } from "../../../redux/reducers/MyDoneText";
 
 const DoContainer = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const DoContainer = () => {
     dispatch(addInputTextDoing(currentTask.text));
     const removeText = arrayOfTasks.filter(({ id }) => id !== currentTask.id);
     dispatch(removeToDoCurrentText(removeText));
-  }
+  };
   const moveTaskToDone = (currentTask) => {
     dispatch(addInputTextDone(currentTask.text));
     const removeText = arrayOfTasks.filter(({ id }) => id !== currentTask.id);
@@ -68,7 +68,7 @@ const DoContainer = () => {
           })}
         </div>
       ) : (
-        <div className = "todo-wrapper-empty">empty</div>
+        <div className="todo-wrapper-empty">empty</div>
       )}
     </div>
   );

@@ -14,7 +14,6 @@ const WindowForNewTodo = () => {
   const [textCheckBoxDoing, setTextCheckBoxDoing] = useState(false);
   const [textCheckBoxDone, setTextCheckBoxDone] = useState(false);
 
-
   const soldCheckBoxToDo = (e) => {
     setTextCheckBoxDoing(false);
     setTextCheckBoxDone(false);
@@ -24,7 +23,6 @@ const WindowForNewTodo = () => {
     setTextCheckBoxToDo(false);
     setTextCheckBoxDone(false);
     setTextCheckBoxDoing(e.target.checked);
-
   };
   const soldCheckBoxDone = (e) => {
     setTextCheckBoxToDo(false);
@@ -51,8 +49,7 @@ const WindowForNewTodo = () => {
     }
   };
   return (
-    <div className="window-add-task" onDragStart={(e) => {
-    }}>
+    <div className="window-add-task" onDragStart={(e) => {}}>
       <div className="window-add-task-content">
         <input
           className="window-add-task-content__input"
