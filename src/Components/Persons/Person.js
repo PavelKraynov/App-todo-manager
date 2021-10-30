@@ -13,7 +13,7 @@ const Persons = () => {
       <button onClick={onClick}>ds</button>
       {toggled && personsArray.map(it => {
         return <div >
-          <button type='button' className={`button1${it}`}>
+          <button type='button' className={`button${it}`}>
           </button>
         </div>
       })}
