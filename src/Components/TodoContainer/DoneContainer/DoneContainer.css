@@ -2,7 +2,7 @@
   font-size: 1.5rem;
   color: rgb(58, 55, 214);
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   width: 24rem;
   margin: 1px;
   border-radius: 1rem;
@@ -18,7 +18,7 @@
   color: rgb(48, 46, 177);
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   border-radius: 0.5rem;
 }
 
