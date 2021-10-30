@@ -14,6 +14,7 @@ const WindowForNewTodo = () => {
   const [textCheckBoxDoing, setTextCheckBoxDoing] = useState(false);
   const [textCheckBoxDone, setTextCheckBoxDone] = useState(false);
 
+
   const soldCheckBoxToDo = (e) => {
     setTextCheckBoxDoing(false);
     setTextCheckBoxDone(false);
@@ -23,6 +24,7 @@ const WindowForNewTodo = () => {
     setTextCheckBoxToDo(false);
     setTextCheckBoxDone(false);
     setTextCheckBoxDoing(e.target.checked);
+
   };
   const soldCheckBoxDone = (e) => {
     setTextCheckBoxToDo(false);
@@ -49,14 +51,15 @@ const WindowForNewTodo = () => {
     }
   };
   return (
-    <div className="window-add-task">
+    <div className="window-add-task" onDragStart={(e) => {
+    }}>
       <div className="window-add-task-content">
         <input
           className="window-add-task-content__input"
           type="text"
           onChange={onChange}
           value={text}
-          placeholder="write something for task manager"
+          placeholder="select the checkbox and send message...."
         />
         <button
           className="window-add-task-content__button"
@@ -67,31 +70,33 @@ const WindowForNewTodo = () => {
         </button>
       </div>
       <div className="window-add-task-boxes">
-        <input
-          className="window-add-task-boxes__checkbox"
-          type="checkbox"
-          checked={textCheckBoxToDo}
-          onChange={soldCheckBoxToDo}
-        />{" "}
-        To do
+        <div id="to-do">
+          <input
+            className="window-add-task-boxes__checkbox"
+            type="checkbox"
+            checked={textCheckBoxToDo}
+            onChange={soldCheckBoxToDo}
+          />{" "}
+          TO-DO
+        </div>
         <div />
-        <div>
+        <div id="doing">
           <input
             className="window-add-task-boxes__checkbox"
             type="checkbox"
             checked={textCheckBoxDoing}
             onChange={soldCheckBoxDoing}
           />{" "}
-          Doing
+          DOING
         </div>
-        <div>
+        <div id="done">
           <input
             className="window-add-task-boxes__checkbox"
             type="checkbox"
             checked={textCheckBoxDone}
             onChange={soldCheckBoxDone}
           />{" "}
-          Done
+          DONE
         </div>
       </div>
     </div>

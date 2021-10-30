@@ -57,7 +57,7 @@ export function addInputTextToDo(newTask) {
   };
 }
 
-export function removeCurrentText(filteredArray) {
+export function removeToDoCurrentText(filteredArray) {
   return { type: REMOVE_TASK, filteredArray };
 }
 

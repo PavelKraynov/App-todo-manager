@@ -1,21 +1,21 @@
 .done-wrapper {
   font-size: 1.5rem;
-  color:rgb(58, 55, 214);
+  color: rgb(58, 55, 214);
   display: flex;
   justify-content: start;
-  width: 23rem;
+  width: 24rem;
   margin: 1px;
   border-radius: 1rem;
   padding: 10px;
   flex-direction: column;
   align-items: center;
-   box-shadow: -20px 20px 40px 0px rgba(248, 204, 255, 0.73);
- background: linear-gradient(210deg, #2aaae6, #a899e7)
+  box-shadow: -20px 20px 40px 0px rgba(248, 204, 255, 0.73);
+  background: linear-gradient(210deg, #2aaae6, #a899e7);
 }
 
 .done-wrapper-tasks {
   font-size: 1rem;
-  color:rgb(48, 46, 177);
+  color: rgb(48, 46, 177);
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -32,25 +32,46 @@
 .done-wrapper-tasks__text-container {
   display: flex;
   flex-direction: column;
-  word-break: break-all;
+  hyphens: auto;
+  word-break: keep-all;
   margin: 0.5rem;
-  max-width: 300px;
+  max-width: 260px;
 }
-
+.done-wrapper-tasks__buttons-container {
+  display: flex;
+}
+.done-wrapper-tasks__buttons-container-move {
+  display: flex;
+  flex-direction: column;
+}
 .done-wrapper-tasks__text {
   border-radius: 0.3rem;
-  background: rgba(243, 229, 27, 0.3);
+  background: rgba(208, 238, 252, 0.74);
   padding: 3px;
 }
 .done-wrapper-tasks__text-date {
   font-size: 0.6rem;
   margin-bottom: 0.1rem;
 }
+.done-wrapper-tasks__button-move {
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  margin-bottom: 0.4rem;
+  border-radius: 0.3rem;
+  max-height: 25px;
+  background: rgba(248, 245, 195, 0.3);
+}
+
+.done-wrapper-tasks__button-move:hover {
+  transform: scale(1.2);
+}
 .done-wrapper-tasks__button-delete {
   border: 0px;
   margin-right: 12px;
   border-radius: 0.3rem;
-  background: rgba(243, 229, 27, 0);
+  background: none;
   max-height: 25px;
 }
 
@@ -58,7 +79,7 @@
   transform: scale(1.5);
 }
 
-.done-wrapper-empty{
-   font-size: 0.8rem;
+.done-wrapper-empty {
+  font-size: 0.8rem;
   color: rgb(62, 118, 167);
 }

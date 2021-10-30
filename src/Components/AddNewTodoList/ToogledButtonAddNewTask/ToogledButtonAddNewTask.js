@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import WindowForNewTodo from '../WindowForNewTodo/WindowForNewTodo'
+import Persons from '../../Persons/Person'
 
 import "./ToogledButtonAddNewTask.css";
 
@@ -25,6 +26,7 @@ const ButtotAndInputForNewTodo = () => {
           <WindowForNewTodo />
         </div>
       )}
+      
     </div>
   );
 };

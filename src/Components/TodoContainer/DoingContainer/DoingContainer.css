@@ -2,9 +2,8 @@
   font-size: 1.5rem;
   color:rgb(136, 96, 36);
   display: flex;
-  width: 23rem;
+  width: 24rem;
   justify-content: start;
-  /* width: 300px; */
   margin: 1px;
   border-radius: 1rem;
   padding: 10px;
@@ -31,27 +30,50 @@
 }
 
 .doing-wrapper-tasks__text-container {
+ display: flex;
+  flex-direction: column;
+  hyphens: auto;
+  word-break: keep-all;
+  margin: 0.5rem;
+  max-width: 260px;
+}
+.doing-wrapper-tasks__buttons-container{
+  display: flex;
+}
+.doing-wrapper-tasks__buttons-container-move{
   display: flex;
   flex-direction: column;
-  word-break: break-all;
-  margin: 0.5rem;
-  max-width: 300px;
+  align-items: center;
+  padding-right: 5px;
 }
-
 .doing-wrapper-tasks__text {
   border-radius: 0.3rem;
-  background: rgba(243, 229, 27, 0.3);
+  background: rgba(208, 238, 252, 0.74);
   padding: 3px;
 }
 .doing-wrapper-tasks__text-date {
   font-size: 0.6rem;
   margin-bottom: 0.1rem;
 }
+.doing-wrapper-tasks__button-move {
+   font-size: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  border:none;
+  hyphens:none;
+  margin-bottom: 0.4rem;
+  border-radius: 0.3rem;
+  max-height: 25px;
+  background: rgba(248, 245, 195, 0.3);
+}
+.doing-wrapper-tasks__button-move:hover{
+  transform: scale(1.2)
+}
 .doing-wrapper-tasks__button-delete {
   border: 0px;
   margin-right: 12px;
   border-radius: 0.3rem;
-  background: rgba(243, 229, 27, 0);
+  background: none;
   max-height: 25px;
 }
 

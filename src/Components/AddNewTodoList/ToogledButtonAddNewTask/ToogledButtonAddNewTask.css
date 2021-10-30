@@ -11,12 +11,16 @@
   margin-top: 30px;
 }
 .root-create-forAdd__button--size--color {
-  background: #fdff9d;
+   /* background: linear-gradient(210deg, #2aaae6, #a899e7); */
+  border: 0.1rem solid rgba(37, 182, 250, 0.3);
   border-radius: 20px;
+  background:  rgba(109, 169, 236, 0.767);
   height: 40px;
   width: 40px;
 }
-
+.root-create-forAdd__button--size--color:hover {
+  transform: scale(1.1);
+}
 .root-create-forAdd__window {
   display: flex;
   position: absolute;
