@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import WindowForNewTodo from '../WindowForNewTodo/WindowForNewTodo'
-import Persons from '../../Persons/Person'
+import { useState } from "react";
+import WindowForNewTodo from "../WindowForNewTodo/WindowForNewTodo";
+import Persons from "../../Persons/Person";
 
 import "./ToogledButtonAddNewTask.css";
 
 const ButtotAndInputForNewTodo = () => {
-  const [toggled, setToggled] = useState(false)
+  const [toggled, setToggled] = useState(false);
   const onClick = () => {
     setToggled(!toggled);
-  }
+  };
   return (
     <div className="root-create-forAdd">
       <div className="root-create-forAdd__button">
@@ -26,7 +26,6 @@ const ButtotAndInputForNewTodo = () => {
           <WindowForNewTodo />
         </div>
       )}
-      
     </div>
   );
 };

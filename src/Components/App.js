@@ -1,8 +1,7 @@
-import Todos from "./TodoContainer/Todos"
-import ButtotAndInputForNewTodo from './AddNewTodoList/ToogledButtonAddNewTask/ToogledButtonAddNewTask'
-import './App.css'
-import Persons from "./Persons/Person"
-
+import Todos from "./TodoContainer/Todos";
+import ButtotAndInputForNewTodo from "./AddNewTodoList/ToogledButtonAddNewTask/ToogledButtonAddNewTask";
+import "./App.css";
+import Persons from "./Persons/Person";
 
 const App = () => {
   return (
@@ -12,6 +11,6 @@ const App = () => {
       <Persons />
     </div>
   );
-}
+};
 
-export default App
+export default App;
