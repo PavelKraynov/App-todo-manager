@@ -50,7 +50,7 @@ const Persons = ({ id, callbackShowPerson }) => {
     dispatch(editDoingTask(id, icon))
   }
   return (
-    <Portal>
+
     <div className="all">
       <button
         onClick={onClick}
@@ -76,7 +76,6 @@ const Persons = ({ id, callbackShowPerson }) => {
           })}
       </div>
     </div>
-  </Portal>
   );
 };
 
