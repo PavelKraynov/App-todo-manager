@@ -1,8 +1,10 @@
 import { nanoid } from "nanoid";
+import { useState } from "react";
 
 const INPUT_TEXT = "INPUT_TEXT";
 const ADD_DOING_TASK = "ADD_DOING_TASK";
 const REMOVE_DOING_TASK = "REMOVE_DOING_TASK";
+const EDIT_DOING_TASK = 'EDIT_DOING_TASK'
 
 const initialState = {
   text: "",
@@ -27,6 +29,12 @@ const myDoingText = (state = initialState, action) => {
       return {
         ...state,
         arrayOfDoingTasks: action.filteredArray,
+      };
+    }
+    case EDIT_DOING_TASK: {
+      return {
+        ...state,
+        arrayOfDoingTasks: action.addIconsForTask,
       };
     }
     default:
@@ -60,5 +68,20 @@ export function addInputTextDoing(newTask) {
 export function removeDoingCurrentText(filteredArray) {
   return { type: REMOVE_DOING_TASK, filteredArray };
 }
+
+
+export function editDoingTask(id, icon){
+  return (dispatch, useState) => {
+    const store = useState();
+    const doingTasks = store.myDoingText.arrayOfDoingTasks;
+    const addIconsForTask = doingTasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, icon };
+      }
+      return task;
+    });
+    return dispatch({ type: EDIT_DOING_TASK, addIconsForTask });
+  };
+  }
 
 export default myDoingText;

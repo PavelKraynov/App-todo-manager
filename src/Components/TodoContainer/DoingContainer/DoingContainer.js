@@ -5,6 +5,7 @@ import { removeDoingCurrentText } from "../../../redux/reducers/MyDoingText";
 
 import { addInputTextToDo } from "../../../redux/reducers/MyTodoText";
 import { addInputTextDone } from "../../../redux/reducers/MyDoneText";
+import Persons from "../../Persons/Person";
 
 const DoingContainer = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ const DoingContainer = () => {
   };
   return (
     <div className="doing-wrapper">
+        
+      {console.log(arrayOfDoingTasks)}
       DOING
       {arrayOfDoingTasks.length > 0 ? (
         <div className="doing-wrapper-tasks">
@@ -40,9 +43,18 @@ const DoingContainer = () => {
             return (
               <div key={task.id} className="doing-wrapper-tasks__content">
                 <div className="doing-wrapper-tasks__text-container">
-                  <span className="doing-wrapper-tasks__text-date">
-                    {task.date.split(" ")[3]} {task.date.split(" ")[4]}
-                  </span>
+                  <div className="doing-wrapper-tasks__date-icon-wrapper">
+                    <span className="doing-wrapper-tasks__text-date">
+                      {task.date.split(" ")[3]} {task.date.split(" ")[4]}
+                    </span>
+                    {task.icon && (
+                      <img
+                        className="doing-wrapper-tasks__icon"
+                        src={task.icon}
+                        alt="userWithIcon"
+                      />
+                    )}
+                  </div>
                   <span className="doing-wrapper-tasks__text">{task.text}</span>
                 </div>
                 <div className="doing-wrapper-tasks__buttons-container">
@@ -69,6 +81,7 @@ const DoingContainer = () => {
                   >
                     🗑
                   </button>
+                  <Persons id={task.id} />
                 </div>
               </div>
             );

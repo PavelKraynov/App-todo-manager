@@ -53,10 +53,25 @@
   background: rgba(208, 238, 252, 0.74);
   padding: 3px;
 }
+.todo-wrapper-tasks__date-icon-wrapper{
+  display: flex;
+  align-items: center;
+}
+
 .todo-wrapper-tasks__text-date {
   font-size: 0.6rem;
   margin-bottom: 0.1rem;
+  margin-right: 0.5rem;
 }
+
+
+.todo-wrapper-tasks__icon{
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+
 .todo-wrapper-tasks__button-move {
   font-size: 0.7rem;
   display: flex;

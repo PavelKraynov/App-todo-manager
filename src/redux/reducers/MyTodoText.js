@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 const INPUT_TEXT = "INPUT_TEXT";
 const ADD_TASK = "ADD_TASK";
 const REMOVE_TASK = "REMOVE_TASK"
+const EDITED_TASK = "EDITED_TASK";
 
 const initialState = {
   text: "",
@@ -27,6 +28,12 @@ const myTodoText = (state = initialState, action) => {
       return {
         ...state,
         arrayOfTasks: action.filteredArray,
+      };
+    }
+    case EDITED_TASK: {
+      return {
+        ...state,
+        arrayOfTasks: action.addIconForTaskOfTasks,
       };
     }
     default:
@@ -59,6 +66,21 @@ export function addInputTextToDo(newTask) {
 
 export function removeToDoCurrentText(filteredArray) {
   return { type: REMOVE_TASK, filteredArray };
+}
+
+export function editedToDoTask(id, icon) {
+  return (dispatch, getState) => {
+    const store =  getState()
+    const tasks = store.myTodoText.arrayOfTasks
+    const addIconForTaskOfTasks = tasks.map(task => {
+      if(task.id === id){
+       return {...task, icon}
+      }
+      return task
+    })
+    return dispatch({ type: EDITED_TASK, addIconForTaskOfTasks });
+  }
+
 }
 
 export default myTodoText;

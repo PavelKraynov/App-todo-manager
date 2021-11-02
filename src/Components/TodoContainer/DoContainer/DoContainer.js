@@ -4,11 +4,18 @@ import "./DoContainer.css";
 import { removeToDoCurrentText } from "../../../redux/reducers/MyTodoText";
 import { addInputTextDoing } from "../../../redux/reducers/MyDoingText";
 import { addInputTextDone } from "../../../redux/reducers/MyDoneText";
+import Persons from "../../Persons/Person";
+import { useState } from "react";
+
 
 const DoContainer = () => {
+  const [showIcons, setShowIcons] = useState(true)
   const dispatch = useDispatch();
   const { arrayOfTasks } = useSelector((s) => s.myTodoText);
 
+  // const callbackShowPerson = (togglePerson) => {
+  //   setShowIcons(togglePerson)
+  // }
   // const removeText = (deleteText) => arrayOfTasks.filter(({ id }) => id !== deleteText.id);
   const removeTask = (currentTask) => {
     const removeText = arrayOfTasks.filter(({ id }) => id !== currentTask.id);
@@ -33,9 +40,18 @@ const DoContainer = () => {
             return (
               <div key={task.id} className="todo-wrapper-tasks__content">
                 <div className="todo-wrapper-tasks__text-container">
-                  <span className="todo-wrapper-tasks__text-date">
-                    {task.date.split(" ")[3]} {task.date.split(" ")[4]}
-                  </span>
+                  <div className="todo-wrapper-tasks__date-icon-wrapper">
+                    <span className="todo-wrapper-tasks__text-date">
+                      {task.date.split(" ")[3]} {task.date.split(" ")[4]}
+                    </span>
+                    {task.icon && (
+                      <img
+                        className="todo-wrapper-tasks__icon"
+                        src={task.icon}
+                        alt="user"
+                      />
+                    )}
+                  </div>
                   <span className="todo-wrapper-tasks__text">{task.text}</span>
                 </div>
                 <div className="todo-wrapper-tasks__buttons-container">
@@ -62,6 +78,10 @@ const DoContainer = () => {
                   >
                     🗑
                   </button>
+                  {showIcons && <Persons
+                    id={task.id}
+                    // callbackShowPerson={callbackShowPerson}
+                  />}
                 </div>
               </div>
             );
