@@ -1,13 +1,13 @@
 import { nanoid } from "nanoid";
-import iconOfUser1 from "./IconsFor/mask1.jpg";
-import iconOfUser2 from "./IconsFor/mask2.jpeg";
-import iconOfUser3 from "./IconsFor/mask3.png";
-import iconOfUser4 from "./IconsFor/mask4.png";
-import iconOfUser5 from "./IconsFor/mask5.png";
-import iconOfUser6 from "./IconsFor/mask6.jpeg";
-import iconOfUser7 from "./IconsFor/mask7.jpeg";
-import iconOfUser8 from "./IconsFor/mask8.jpeg";
-import iconOfUser9 from "./IconsFor/mask9.png";
+import iconOfUser1 from "./IconsForModal/mask1.jpg";
+import iconOfUser2 from "./IconsForModal/mask2.jpeg";
+import iconOfUser3 from "./IconsForModal/mask3.png";
+import iconOfUser4 from "./IconsForModal/mask4.png";
+import iconOfUser5 from "./IconsForModal/mask5.png";
+import iconOfUser6 from "./IconsForModal/mask6.jpeg";
+import iconOfUser7 from "./IconsForModal/mask7.jpeg";
+import iconOfUser8 from "./IconsForModal/mask8.jpeg";
+import iconOfUser9 from "./IconsForModal/mask9.png";
 import { editDoingTask } from "../../redux/reducers/MyDoingText";
 import { createPortal } from "react-dom";
 

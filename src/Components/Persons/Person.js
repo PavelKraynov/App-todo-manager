@@ -6,7 +6,7 @@ import "./Person.css";
 
 import { editedToDoTask } from '../../redux/reducers/MyTodoText'
 
-import defaultIcon from "./IconsFor/defaltIcon.jpeg";
+import defaultIcon from "./IconsForModal/defaltIcon.jpeg";
 
 import { editDoingTask } from "../../redux/reducers/MyDoingText";
 import Icons from "./Icons";
@@ -47,7 +47,11 @@ const Persons = ({ id, callbackShowPerson }) => {
       <div>
         {toggled &&
           createPortal(
-            <Icons selectOfDoingTask={selectOfDoingTask} />,
+            <Icons
+              selectOfDoingTask={selectOfDoingTask}
+              toggled={toggled}
+              onCloseWindow={() => setToggled(false)}
+            />,
             portalElement
           )}
       </div>

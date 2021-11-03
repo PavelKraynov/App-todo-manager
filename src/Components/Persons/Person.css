@@ -15,68 +15,99 @@
   object-fit: cover;
 }
 
+.create-portal{
 
-.icon-of-change{
+  position: fixed;
+  width: 100vh;
+  height: 100vh;
+  /* overflow: hidden; */
+  background: rgba(0, 0, 0, 0.356);
+  top:0;
+  left: 0;
+  /* /* */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-top: 20px; */
+  align-items: center;
+}
+.create-portal__position-window{
+  /* margin-top: 100px; */
+  /* justify-content: center; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+.create-portal-window{
+  /* margin-top: 50px; */
+  /* position:absolute; */
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 110px;
+ height: 200px;
+ width: 400px;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: -20px 20px 40px 0px rgba(248, 204, 255, 0.73);
+  background: linear-gradient(210deg, #2aaae6, #a899e7)
+}
+.create-portal-window-content{
+  flex-wrap: wrap;
+  display: flex;
+  /* margin: 0.5rem; */
+  justify-content: center;
+  width: 250px;
+/* justify-content: space-around; */
+
+align-items:  center;
+}
+
+.icreate-portal-window__root{
     display: flex;
-}
+    margin-left: 10px;
+  }
 
 
-.icon-of-change__icon{
-  position: fixed;
-  display: inline;
-  position: fixed;
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  object-fit: cover;
-}
-.icon-of-change__button{
+  .create-portal-window__icon{
+      margin: 0.1rem;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+  }
+  .create-portal-window__button{
    display: flex;
+     margin: 0.1rem;
   border-radius: 50%;
-  border: none;
-  flex-direction: row;
+border:none;
   padding: 0px;
-  margin: 0;
-    height: 20px;
-  width: 20px;
+
 }
 
+/* ----------------------------------- Input name --------------------------- */
 
 
-/* ------------------------------------------------------------ */
-
-.icons-wraper{
-  position: fixed;
-  display: flex;
-  border-radius: 50%;
-  border: none;
-
-  padding: 0px;
-  margin: 0;
-    height: 20px;
-  width: 20px;
+.create-portal-window__input-name{
+  width: 250px;
+  height: 25px;
+  background: rgb(208, 238, 252);
+  border-radius: 10px;
+  border: 0px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
-.icons-wraper__img{
-  position: fixed;
+.create-portal-window__send-name{
   display: flex;
-  border-radius: 50%;
-  border: none;
-  object-fit: cover;
-  padding: 0px;
-  margin: 0;
-    height: 20px;
-  width: 20px;
-}
-
-.icons-wraper__button{
-/* position: fixed; */
-  display: flex;
-  border-radius: 50%;
-  border: none;
-  flex-direction: row;
-  padding: 0px;
-  margin: 0;
-    height: 20px;
-  width: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  border: 0.1rem solid rgba(195, 210, 218, 0.616);
+  border-radius: 20px;
+  background:  rgba(131, 90, 150, 0.767);
+  height: 40px;
+  width: 40px;
 }

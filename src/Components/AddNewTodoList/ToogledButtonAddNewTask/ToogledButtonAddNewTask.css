@@ -5,7 +5,7 @@
 
 .root-create-forAdd__button {
   display: flex;
-  position: relative;
+  /* position: relative; */
   justify-content: center;
   align-items: flex-end;
   margin-top: 30px;
@@ -23,7 +23,7 @@
 }
 .root-create-forAdd__window {
   display: flex;
-  position: absolute;
+  /* position: absolute; */
   justify-content: center;
   border-radius: 1rem;
 }

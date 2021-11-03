@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { nanoid } from "nanoid";
 import iconOfUser1 from "./IconsForModal/mask1.jpg";
 import iconOfUser2 from "./IconsForModal/mask2.jpeg";
@@ -12,6 +13,7 @@ import { editDoingTask } from "../../redux/reducers/MyDoingText";
 import { createPortal } from "react-dom";
 
 import "./Person.css";
+import React from "react";
 
 const allIcons = [
   iconOfUser1,
@@ -26,25 +28,51 @@ const allIcons = [
 ];
 
 const Icons = (props) => {
+
+  const [textIconName, setTextIconName] = useState('')
+
   return (
-    <div className="icon-of-change__icon">
-      {allIcons.map((it, index) => {
-        return (
-          <div key={nanoid()} className="icon-of-change">
+    <div className="create-portal">
+      <div className="create-portal__position-window">
+        <div className="create-portal-window">
+          SELECT AN ICON AND ENTER YOUR NAME
+          <div className="create-portal-window-content">
+            {allIcons.map((it, index) => {
+              return (
+                <div key={nanoid()}>
+                  <button
+                    type="button"
+                    onClick={() => props.selectOfDoingTask(allIcons[index])}
+                    className="create-portal-window__button"
+                  >
+                    <img
+                      className="create-portal-window__icon"
+                      src={allIcons[index]}
+                      alt="iconOfUser"
+                    />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <input className="create-portal-window__input-name" />
+            <button className="create-portal-window__send-name">Enter</button>
             <button
-              type="button"
-              onClick={() => props.selectOfDoingTask(allIcons[index])}
-              className="icon-of-change__button"
+              className="create-portal-window__send-name"
+              onClick={props.onCloseWindow}
             >
-              <img
-                className="icon-of-change__icon"
-                src={allIcons[index]}
-                alt="iconOfUser"
-              />
+              Exit
             </button>
           </div>
-        );
-      })}
+        </div>
+      </div>
     </div>
   );
 };
