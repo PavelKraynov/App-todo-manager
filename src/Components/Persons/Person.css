@@ -51,8 +51,8 @@
  width: 400px;
   border-radius: 1rem;
   margin-bottom: 0.5rem;
-  box-shadow: -20px 20px 40px 0px rgba(248, 204, 255, 0.73);
-  background: linear-gradient(210deg, #2aaae6, #a899e7)
+  box-shadow: -20px 20px 40px 0px rgba(224, 165, 233, 0.73);
+  background: linear-gradient(210deg, #2aaae6, rgb(216, 157, 228))
 }
 .create-portal-window-content{
   flex-wrap: wrap;
@@ -78,36 +78,66 @@ align-items:  center;
     width: 40px;
     object-fit: cover;
   }
+  .create-portal-window__icon:hover {
+  transform: scale(1.2);
+}
   .create-portal-window__button{
    display: flex;
      margin: 0.1rem;
   border-radius: 50%;
 border:none;
   padding: 0px;
-
 }
-
+.create-portal-window__button:hover{
+  transform: scale(1.2);
+}
 /* ----------------------------------- Input name --------------------------- */
 
 
 .create-portal-window__input-name{
-  width: 250px;
+  width: 200px;
   height: 25px;
+  margin: 10px;
   background: rgb(208, 238, 252);
   border-radius: 10px;
   border: 0px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-
+.create-portal-window__input-name:hover {
+  transform: scale(1.05);
+}
 .create-portal-window__send-name{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 10px;
-  border: 0.1rem solid rgba(195, 210, 218, 0.616);
+  border: 0.1rem solid rgb(208, 238, 252);
   border-radius: 20px;
-  background:  rgba(131, 90, 150, 0.767);
-  height: 40px;
+  background: rgb(116, 175, 202);
   width: 40px;
+    height: 40px;
+}
+
+.create-portal-window__send-name:hover {
+  transform: scale(1.1);
+}
+.create-portal-window__exit{
+  display: flex;
+  margin-left: 0.3rem;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid rgb(208, 238, 252);
+  border-radius: 20px;
+  background: rgb(116, 175, 202);
+  width: 40px;
+   height: 40px;
+}
+
+.create-portal-window__exit:hover {
+  transform: scale(1.1);
+}
+
+
+.error-text{
+  color: red;
 }

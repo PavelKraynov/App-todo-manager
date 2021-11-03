@@ -52,6 +52,7 @@
   border-radius: 0.3rem;
   background: rgba(208, 238, 252, 0.74);
   padding: 3px;
+  min-width: 120px ;
 }
 .todo-wrapper-tasks__date-icon-wrapper{
   display: flex;

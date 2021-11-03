@@ -5,6 +5,7 @@ const INPUT_TEXT = "INPUT_TEXT";
 const ADD_DOING_TASK = "ADD_DOING_TASK";
 const REMOVE_DOING_TASK = "REMOVE_DOING_TASK";
 const EDIT_DOING_TASK = 'EDIT_DOING_TASK'
+const ADD_NAME_FOR_TASK = "ADD_NAME_FOR_TASK";
 
 const initialState = {
   text: "",
@@ -35,6 +36,12 @@ const myDoingText = (state = initialState, action) => {
       return {
         ...state,
         arrayOfDoingTasks: action.addIconsForTask,
+      };
+    }
+    case ADD_NAME_FOR_TASK: {
+      return {
+        ...state,
+        arrayOfDoingTasks: action.addNameForTask,
       };
     }
     default:
@@ -82,6 +89,21 @@ export function editDoingTask(id, icon){
     });
     return dispatch({ type: EDIT_DOING_TASK, addIconsForTask });
   };
+  }
+
+
+  export function addNameDoingTask(textIconName, id){
+    return (dispatch, useState) => {
+      const store = useState()
+      const doingTasks = store.myDoingText.arrayOfDoingTasks;
+      const addNameForTask = doingTasks.map((task)=> {
+        if(task.id === id  ){
+          return { ...task, textIconName };
+        }
+        return task
+      })
+      return dispatch({ type: ADD_NAME_FOR_TASK, addNameForTask });
+    }
   }
 
 export default myDoingText;

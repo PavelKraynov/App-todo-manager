@@ -34,7 +34,7 @@ const DoingContainer = () => {
   };
   return (
     <div className="doing-wrapper">
-        
+
       {console.log(arrayOfDoingTasks)}
       DOING
       {arrayOfDoingTasks.length > 0 ? (
@@ -54,6 +54,7 @@ const DoingContainer = () => {
                         alt="userWithIcon"
                       />
                     )}
+                    {task.textIconName}
                   </div>
                   <span className="doing-wrapper-tasks__text">{task.text}</span>
                 </div>

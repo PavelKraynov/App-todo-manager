@@ -23,14 +23,8 @@ const Persons = ({ id, callbackShowPerson }) => {
   const personsArray = new Array(9).fill(null).map((_, index) => index + 1);
   const onClick = () => {
     setToggled(!toggled);
-    // callbackShowPerson(toggled);
-  };
 
-  // const selectUserForTask = (icon) => {
-  //   dispatch(editedToDoTask(id, icon));
-  //   setToggled(!toggled);
-  //   // callbackShowPerson(toggled)
-  // };
+  };
 
   const selectOfDoingTask = (icon) => {
     dispatch(editDoingTask(id, icon))
@@ -48,6 +42,7 @@ const Persons = ({ id, callbackShowPerson }) => {
         {toggled &&
           createPortal(
             <Icons
+              id={id}
               selectOfDoingTask={selectOfDoingTask}
               toggled={toggled}
               onCloseWindow={() => setToggled(false)}
