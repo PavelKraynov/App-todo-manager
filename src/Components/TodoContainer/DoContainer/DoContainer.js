@@ -4,7 +4,7 @@ import "./DoContainer.css";
 import { removeToDoCurrentText } from "../../../redux/reducers/MyTodoText";
 import { addInputTextDoing } from "../../../redux/reducers/MyDoingText";
 import { addInputTextDone } from "../../../redux/reducers/MyDoneText";
-import Persons from "../../Persons/Person";
+import Persons from "../../Persons/Persons";
 import { useState } from "react";
 
 
@@ -33,7 +33,7 @@ const DoContainer = () => {
   };
   return (
     <div className="todo-wrapper">
-      TO-DO
+      <div className="todo-wrapper__heading">TO-DO</div>
       {arrayOfTasks.length > 0 ? (
         <div className="todo-wrapper-tasks">
           {arrayOfTasks.map((task) => {
@@ -78,10 +78,12 @@ const DoContainer = () => {
                   >
                     🗑
                   </button>
-                  {showIcons && <Persons
-                    id={task.id}
-                    // callbackShowPerson={callbackShowPerson}
-                  />}
+                  {showIcons && (
+                    <Persons
+                      id={task.id}
+                      // callbackShowPerson={callbackShowPerson}
+                    />
+                  )}
                 </div>
               </div>
             );

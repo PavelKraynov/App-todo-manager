@@ -11,7 +11,7 @@ import iconOfUser9 from "./IconsForModal/mask9.png";
 import { editDoingTask } from "../../redux/reducers/MyDoingText";
 import { createPortal } from "react-dom";
 
-import "./Person.css";
+import "./IconsForPersons.css";
 
 const allIcons = [
   iconOfUser1,

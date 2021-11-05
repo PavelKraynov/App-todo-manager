@@ -1,6 +1,6 @@
 import { useState } from "react";
 import WindowForNewTodo from "../WindowForNewTodo/WindowForNewTodo";
-import Persons from "../../Persons/Person";
+import Persons from "../../Persons/Persons";
 
 import "./ToogledButtonAddNewTask.css";
 

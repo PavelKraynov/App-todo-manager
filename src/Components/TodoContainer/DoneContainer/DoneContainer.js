@@ -38,7 +38,7 @@ const DoneContainer = () => {
 
   return (
     <div className="done-wrapper">
-      DONE
+      <div className="doing-wrapper__heading">DONE</div>
       {arrayOfDoneTasks.length > 0 ? (
         <div className="done-wrapper-tasks">
           {arrayOfDoneTasks.map((task) => {

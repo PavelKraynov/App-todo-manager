@@ -15,7 +15,7 @@ import iconOfUser9 from "./IconsForModal/mask9.png";
 import { addNameDoingTask } from "../../redux/reducers/MyDoingText";
 import { createPortal } from "react-dom";
 
-import "./Person.css";
+import "./IconsForPersons.css";
 import React from "react";
 
 const allIcons = [
@@ -52,7 +52,7 @@ const Icons = ({ selectOfDoingTask, id ,onCloseWindow }) => {
       dispatch(addNameDoingTask(`${sliceStrUpp}${sliceStrLower}`, id));
       onCloseWindow()
     }
-    return setErrorText("Please, write your Name");
+    return setErrorText("Please, write your name");
   };
   return (
     <div className="create-portal">

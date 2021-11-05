@@ -5,7 +5,7 @@ import { removeDoingCurrentText } from "../../../redux/reducers/MyDoingText";
 
 import { addInputTextToDo } from "../../../redux/reducers/MyTodoText";
 import { addInputTextDone } from "../../../redux/reducers/MyDoneText";
-import Persons from "../../Persons/Person";
+import Persons from "../../Persons/Persons";
 
 const DoingContainer = () => {
   const dispatch = useDispatch();
@@ -34,9 +34,7 @@ const DoingContainer = () => {
   };
   return (
     <div className="doing-wrapper">
-
-      {console.log(arrayOfDoingTasks)}
-      DOING
+      <div className="doing-wrapper__heading">DOING</div>
       {arrayOfDoingTasks.length > 0 ? (
         <div className="doing-wrapper-tasks">
           {arrayOfDoingTasks.map((task) => {

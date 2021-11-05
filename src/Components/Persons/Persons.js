@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 
-import "./Person.css";
+import "./IconsForPersons.css";
 
 import { editedToDoTask } from '../../redux/reducers/MyTodoText'
 
