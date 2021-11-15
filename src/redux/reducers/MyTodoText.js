@@ -1,9 +1,10 @@
 import { nanoid } from "nanoid";
 
 const INPUT_TEXT = "INPUT_TEXT";
-const ADD_TASK = "ADD_TASK";
-const REMOVE_TASK = "REMOVE_TASK"
-const EDITED_TASK = "EDITED_TASK";
+const ADD_TODO_TASK = "ADD_TODO_TASK";
+const REMOVE_TODO_TASK = "REMOVE_TODO_TASK";
+const EDITED_TODO_TASK = "EDITED_TODO_TASK";
+const ADD_NAME_FOR_TODO_TASK = "ADD_NAME_FOR_TODO_TASK";
 
 const initialState = {
   text: "",
@@ -18,22 +19,28 @@ const myTodoText = (state = initialState, action) => {
         text: action.typeText,
       };
     }
-    case ADD_TASK: {
+    case ADD_TODO_TASK: {
       return {
         ...state,
         arrayOfTasks: [...state.arrayOfTasks, action.taskWithData],
       };
     }
-    case REMOVE_TASK: {
+    case REMOVE_TODO_TASK: {
       return {
         ...state,
         arrayOfTasks: action.filteredArray,
       };
     }
-    case EDITED_TASK: {
+    case EDITED_TODO_TASK: {
       return {
         ...state,
         arrayOfTasks: action.addIconForTaskOfTasks,
+      };
+    }
+    case ADD_NAME_FOR_TODO_TASK: {
+      return {
+        ...state,
+        arrayOfTasks: action.addNameForTask,
       };
     }
     default:
@@ -57,30 +64,61 @@ export function addInputTextToDo(newTask) {
     };
     return date.toLocaleString("en-US", options).split(",").join("");
   };
-
+  if (typeof newTask !== 'string') {
+    return {
+      type: ADD_TODO_TASK,
+      taskWithData: {
+        id: nanoid(),
+        text: newTask.text,
+        date: setDate(),
+        icon: newTask.icon,
+        textIconName: newTask.textIconName,
+      },
+    };
+  }
   return {
-    type: ADD_TASK,
-    taskWithData: { id: nanoid(), text: newTask, date: setDate() },
+    type: ADD_TODO_TASK,
+    taskWithData: {
+      id: nanoid(),
+      // text: newTask.text,
+      date: setDate(),
+      text: newTask,
+      // icon: newTask.icon,
+      // textIconName: newTask.textIconName,
+    },
   };
 }
 
 export function removeToDoCurrentText(filteredArray) {
-  return { type: REMOVE_TASK, filteredArray };
+  return { type: REMOVE_TODO_TASK, filteredArray };
 }
 
 export function editedToDoTask(id, icon) {
   return (dispatch, getState) => {
-    const store =  getState()
-    const tasks = store.myTodoText.arrayOfTasks
-    const addIconForTaskOfTasks = tasks.map(task => {
-      if(task.id === id){
-       return {...task, icon}
+    const store = getState();
+    const tasks = store.myTodoText.arrayOfTasks;
+    const addIconForTaskOfTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, icon };
       }
-      return task
-    })
-    return dispatch({ type: EDITED_TASK, addIconForTaskOfTasks });
-  }
+      return task;
+    });
+    return dispatch({ type: EDITED_TODO_TASK, addIconForTaskOfTasks });
+  };
+}
 
+export function addNameToDoTask(textIconName, id) {
+  return (dispatch, getState) => {
+    const store = getState();
+    const tasks = store.myTodoText.arrayOfTasks;
+    const addNameForTask = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, textIconName };
+      }
+      return task;
+    });
+    return dispatch({ type: ADD_NAME_FOR_TODO_TASK, addNameForTask });
+  };
 }
 
 export default myTodoText;

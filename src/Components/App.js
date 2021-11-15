@@ -8,7 +8,6 @@ const App = () => {
     <div className="root-app" >
       <Todos />
       <ButtotAndInputForNewTodo />
-
     </div>
   );
 };

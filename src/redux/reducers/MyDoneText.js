@@ -50,10 +50,25 @@ export function addInputTextDone(newTask) {
     };
     return date.toLocaleString("en-US", options).split(",").join("");
   };
-
+  if (typeof newTask !== "string") {
+    return {
+      type: ADD_DONE_TASK,
+      taskWithData: {
+        id: nanoid(),
+        text: newTask.text,
+        date: setDate(),
+        icon: newTask.icon,
+        textIconName: newTask.textIconName,
+      },
+    };
+  }
   return {
     type: ADD_DONE_TASK,
-    taskWithData: { id: nanoid(), text: newTask, date: setDate() },
+    taskWithData: {
+      id: nanoid(),
+      date: setDate(),
+      text: newTask,
+    }
   };
 }
 

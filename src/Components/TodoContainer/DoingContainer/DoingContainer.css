@@ -74,11 +74,9 @@
 .doing-wrapper-tasks__button-move {
    font-size: 0.7rem;
   display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  border:none;
-  /* hyphens:none; */
-  margin-top: 0.2rem;
+  justify-content: space-between;
+  border: none;
+  margin-bottom: 0.4rem;
   border-radius: 0.3rem;
   max-height: 25px;
   background: rgba(248, 245, 195, 0.3);

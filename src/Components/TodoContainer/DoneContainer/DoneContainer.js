@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./DoneContainer.css";
 
+import Persons from '../../Persons/Persons'
+
 import { removeDoneCurrentText } from "../../../redux/reducers/MyDoneText";
 
 import { addInputTextToDo } from "../../../redux/reducers/MyTodoText";
@@ -18,7 +20,7 @@ const DoneContainer = () => {
     dispatch(removeDoneCurrentText(removeText));
   };
    const moveTaskToDo = (currentTask) => {
-     dispatch(addInputTextToDo(currentTask.text));
+     dispatch(addInputTextToDo(currentTask));
      const removeText = arrayOfDoneTasks.filter(
        ({ id }) => id !== currentTask.id
      );
@@ -26,7 +28,7 @@ const DoneContainer = () => {
    };
    const moveTaskToDoing = (currentTask) => {
 
-     dispatch(addInputTextDoing(currentTask.text));
+     dispatch(addInputTextDoing(currentTask));
 
      const removeText = arrayOfDoneTasks.filter(
        ({ id }) => id !== currentTask.id
@@ -44,13 +46,20 @@ const DoneContainer = () => {
           {arrayOfDoneTasks.map((task) => {
             return (
               <div key={task.id} className="done-wrapper-tasks__content">
-                <div
-                  className="done-wrapper-tasks__text-container"
-                  lang="en-US"
-                >
-                  <span className="done-wrapper-tasks__text-date">
-                    {task.date.split(" ")[3]} {task.date.split(" ")[4]}
-                  </span>
+                <div className="done-wrapper-tasks__text-container">
+                  <div className="todo-wrapper-tasks__date-icon-wrapper">
+                    <span className="done-wrapper-tasks__text-date">
+                      {task.date.split(" ")[3]} {task.date.split(" ")[4]}
+                    </span>
+                    {task.icon && (
+                      <img
+                        className="doing-wrapper-tasks__icon"
+                        src={task.icon}
+                        alt="userWithIcon"
+                      />
+                    )}
+                    {task.textIconName}
+                  </div>
                   <span className="done-wrapper-tasks__text">{task.text}</span>
                 </div>
                 <div className="done-wrapper-tasks__buttons-container">
@@ -77,6 +86,7 @@ const DoneContainer = () => {
                   >
                     🗑
                   </button>
+                  <Persons id={task.id} />
                 </div>
               </div>
             );

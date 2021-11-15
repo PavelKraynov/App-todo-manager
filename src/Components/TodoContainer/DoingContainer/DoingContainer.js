@@ -19,14 +19,14 @@ const DoingContainer = () => {
     dispatch(removeDoingCurrentText(removeText));
   };
   const moveTaskToDo = (currentTask) => {
-    dispatch(addInputTextToDo(currentTask.text));
+    dispatch(addInputTextToDo(currentTask));
     const removeText = arrayOfDoingTasks.filter(
       ({ id }) => id !== currentTask.id
       );
     dispatch(removeDoingCurrentText(removeText));
   };
   const moveTaskToDone = (currentTask) => {
-    dispatch(addInputTextDone(currentTask.text));
+    dispatch(addInputTextDone(currentTask));
     const removeText = arrayOfDoingTasks.filter(
       ({ id }) => id !== currentTask.id
     );

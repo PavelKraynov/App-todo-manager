@@ -1,11 +1,10 @@
 import { nanoid } from "nanoid";
-import { useState } from "react";
 
 const INPUT_TEXT = "INPUT_TEXT";
 const ADD_DOING_TASK = "ADD_DOING_TASK";
 const REMOVE_DOING_TASK = "REMOVE_DOING_TASK";
 const EDIT_DOING_TASK = 'EDIT_DOING_TASK'
-const ADD_NAME_FOR_TASK = "ADD_NAME_FOR_TASK";
+const ADD_NAME_FOR_DOING_TASK = "ADD_NAME_FOR_DOING_TASK";
 
 const initialState = {
   text: "",
@@ -38,7 +37,7 @@ const myDoingText = (state = initialState, action) => {
         arrayOfDoingTasks: action.addIconsForTask,
       };
     }
-    case ADD_NAME_FOR_TASK: {
+    case ADD_NAME_FOR_DOING_TASK: {
       return {
         ...state,
         arrayOfDoingTasks: action.addNameForTask,
@@ -65,12 +64,28 @@ export function addInputTextDoing(newTask) {
     };
     return date.toLocaleString("en-US", options).split(",").join("");
   };
-
-  return {
-    type: ADD_DOING_TASK,
-    taskWithData: { id: nanoid(), text: newTask, date: setDate() },
-  };
+  if (typeof newTask !== 'string'){
+    return {
+      type: ADD_DOING_TASK,
+      taskWithData: {
+        id: nanoid(),
+        text: newTask.text,
+        date: setDate(),
+        icon: newTask.icon,
+        textIconName: newTask.textIconName,
+      },
+    };
 }
+return {
+  type: ADD_DOING_TASK,
+  taskWithData: {
+        id: nanoid(),
+        text: newTask,
+        date: setDate(),
+      },
+    };
+};
+
 
 export function removeDoingCurrentText(filteredArray) {
   return { type: REMOVE_DOING_TASK, filteredArray };
@@ -89,7 +104,7 @@ export function editDoingTask(id, icon){
     });
     return dispatch({ type: EDIT_DOING_TASK, addIconsForTask });
   };
-  }
+}
 
 
   export function addNameDoingTask(textIconName, id){
@@ -102,7 +117,7 @@ export function editDoingTask(id, icon){
         }
         return task
       })
-      return dispatch({ type: ADD_NAME_FOR_TASK, addNameForTask });
+      return dispatch({ type: ADD_NAME_FOR_DOING_TASK, addNameForTask });
     }
   }
 

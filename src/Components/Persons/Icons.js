@@ -13,7 +13,8 @@ import iconOfUser7 from "./IconsForModal/mask7.jpeg";
 import iconOfUser8 from "./IconsForModal/mask8.jpeg";
 import iconOfUser9 from "./IconsForModal/mask9.png";
 import { addNameDoingTask } from "../../redux/reducers/MyDoingText";
-import { createPortal } from "react-dom";
+import { addNameToDoTask } from '../../redux/reducers/MyTodoText'
+
 
 import "./IconsForPersons.css";
 import React from "react";
@@ -30,30 +31,47 @@ const allIcons = [
   iconOfUser9,
 ];
 
-const Icons = ({ selectOfDoingTask, id ,onCloseWindow }) => {
-
-  const[toogled, setToggled] = useState(false)
-  const[errorText, setErrorText] = useState('')
+const Icons = ({
+  /* selectOfDoingTask */ selectOfToDoTask,
+  id,
+  onCloseWindow,
+}) => {
+  const [toogled, setToggled] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
   const [textIconName, setTextIconName] = useState("");
   const { arrayOfDoingTasks } = useSelector((s) => s.myDoingText);
+  const { arrayOfTasks } = useSelector((s) => s.myTodoText);
   const dispatch = useDispatch();
 
   const onClick = (index) => {
-    selectOfDoingTask(allIcons[index])
-    setToggled(true)
-  }
+    // selectOfDoingTask(allIcons[index]);
+    selectOfToDoTask(allIcons[index]);
+    setToggled(true);
+  };
+
+  // const onClickIconName = () => {
+  //   const textTrimIconName = textIconName.trim();
+  //   if (textTrimIconName.length > 0) {
+  //     const sliceStrUpp = textIconName.slice(0, 1).toUpperCase();
+  //     const sliceStrLower = textIconName.slice(1, ).toLocaleLowerCase();
+  //     dispatch(addNameDoingTask(`${sliceStrUpp}${sliceStrLower}`, id));
+  //     onCloseWindow()
+  //   }
+  //   return setErrorText("Please, write your name");
+  // };
 
   const onClickIconName = () => {
     const textTrimIconName = textIconName.trim();
     if (textTrimIconName.length > 0) {
       const sliceStrUpp = textIconName.slice(0, 1).toUpperCase();
-      const sliceStrLower = textIconName.slice(1, ).toLocaleLowerCase();
-      dispatch(addNameDoingTask(`${sliceStrUpp}${sliceStrLower}`, id));
-      onCloseWindow()
+      const sliceStrLower = textIconName.slice(1).toLocaleLowerCase();
+      dispatch(addNameToDoTask(`${sliceStrUpp}${sliceStrLower}`, id));
+      onCloseWindow();
     }
     return setErrorText("Please, write your name");
   };
+
   return (
     <div className="create-portal">
       <div className="create-portal__position-window">
@@ -88,7 +106,8 @@ const Icons = ({ selectOfDoingTask, id ,onCloseWindow }) => {
             {toogled && (
               <img
                 className="create-portal-window__icon"
-                src={arrayOfDoingTasks[arrayOfDoingTasks.length - 1].icon}
+                // src={arrayOfDoingTasks[arrayOfDoingTasks.length - 1].icon}
+                src={arrayOfTasks[arrayOfTasks.length - 1].icon}
                 alt="iconOfUser"
               />
             )}

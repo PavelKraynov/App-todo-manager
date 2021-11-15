@@ -13,21 +13,17 @@ const DoContainer = () => {
   const dispatch = useDispatch();
   const { arrayOfTasks } = useSelector((s) => s.myTodoText);
 
-  // const callbackShowPerson = (togglePerson) => {
-  //   setShowIcons(togglePerson)
-  // }
-  // const removeText = (deleteText) => arrayOfTasks.filter(({ id }) => id !== deleteText.id);
   const removeTask = (currentTask) => {
     const removeText = arrayOfTasks.filter(({ id }) => id !== currentTask.id);
     dispatch(removeToDoCurrentText(removeText));
   };
   const moveTaskToDoing = (currentTask) => {
-    dispatch(addInputTextDoing(currentTask.text));
+    dispatch(addInputTextDoing(currentTask));
     const removeText = arrayOfTasks.filter(({ id }) => id !== currentTask.id);
     dispatch(removeToDoCurrentText(removeText));
   };
   const moveTaskToDone = (currentTask) => {
-    dispatch(addInputTextDone(currentTask.text));
+    dispatch(addInputTextDone(currentTask));
     const removeText = arrayOfTasks.filter(({ id }) => id !== currentTask.id);
     dispatch(removeToDoCurrentText(removeText));
   };
@@ -51,6 +47,7 @@ const DoContainer = () => {
                         alt="user"
                       />
                     )}
+                    {task.textIconName}
                   </div>
                   <span className="todo-wrapper-tasks__text">{task.text}</span>
                 </div>
@@ -78,12 +75,7 @@ const DoContainer = () => {
                   >
                     🗑
                   </button>
-                  {showIcons && (
-                    <Persons
-                      id={task.id}
-                      // callbackShowPerson={callbackShowPerson}
-                    />
-                  )}
+                  {showIcons && <Persons id={task.id} />}
                 </div>
               </div>
             );
