@@ -5,9 +5,10 @@ import "./IconsForPersons.css";
 import defaultIcon from "./IconsForModal/defaltIcon.jpeg";
 
 import { editedToDoTask } from '../../redux/reducers/MyTodoText'
-
-
 import { editDoingTask } from "../../redux/reducers/MyDoingText";
+import { editDoneTask } from "../../redux/reducers/MyDoneText";
+
+
 import Icons from "./Icons";
 import { createPortal } from "react-dom";
 
@@ -23,14 +24,15 @@ const Persons = ({ id }) => {
     setToggled(!toggled);
   };
 
-  // const selectOfDoingTask = (icon) => {
-  //   dispatch(editDoingTask(id, icon))
-  // }
-
+  const selectOfDoingTask = (icon) => {
+    dispatch(editDoingTask(id, icon))
+  }
   const selectOfToDoTask = (icon) => {
     dispatch(editedToDoTask(id, icon));
   };
-
+  const selectOfDoneTask = (icon) => {
+    dispatch(editDoneTask(id, icon));
+  }
   return (
     <div>
       <button onClick={onClick} className="icon-of-change__default-button">
@@ -45,8 +47,9 @@ const Persons = ({ id }) => {
           createPortal(
             <Icons
               id={id}
-              // selectOfDoingTask={selectOfDoingTask}
+              selectOfDoingTask={selectOfDoingTask}
               selectOfToDoTask={selectOfToDoTask}
+              selectOfDoneTask={selectOfDoneTask}
               toggled={toggled}
               onCloseWindow={() => setToggled(false)}
             />,

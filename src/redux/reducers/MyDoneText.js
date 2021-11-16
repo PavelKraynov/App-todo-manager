@@ -3,6 +3,8 @@ import { nanoid } from "nanoid";
 const INPUT_TEXT = "INPUT_TEXT";
 const ADD_DONE_TASK = "ADD_DONE_TASK";
 const REMOVE_DONE_TASK = "REMOVE_DONE_TASK";
+const EDIT_DONE_TASK = "EDIT_DONE_TASK";
+const ADD_NAME_FOR_DONE_TASK = "ADD_NAME_FOR_DONE_TASK";
 
 const initialState = {
   text: "",
@@ -27,6 +29,18 @@ const myDoingText = (state = initialState, action) => {
       return {
         ...state,
         arrayOfDoneTasks: action.filteredArray,
+      };
+    }
+    case EDIT_DONE_TASK: {
+      return {
+        ...state,
+        arrayOfDoneTasks: action.addIconsForTask,
+      };
+    }
+    case ADD_NAME_FOR_DONE_TASK: {
+      return {
+        ...state,
+        arrayOfDoneTasks: action.addNameForTask,
       };
     }
     default:
@@ -72,8 +86,38 @@ export function addInputTextDone(newTask) {
   };
 }
 
+
+
 export function removeDoneCurrentText(filteredArray) {
   return { type: REMOVE_DONE_TASK, filteredArray };
+}
+
+export function editDoneTask(id, icon) {
+  return (dispatch, useState) => {
+    const store = useState();
+    const doneTasks = store.myDoneText.arrayOfDoneTasks;
+    const addIconsForTask = doneTasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, icon };
+      }
+      return task;
+    });
+    return dispatch({ type: EDIT_DONE_TASK, addIconsForTask });
+  };
+}
+
+export function addNameDoneTask(textIconName, id) {
+  return (dispatch, useState) => {
+    const store = useState();
+    const doneTasks = store.myDoneText.arrayOfDoneTasks;
+    const addNameForTask = doneTasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, textIconName };
+      }
+      return task;
+    });
+    return dispatch({ type: ADD_NAME_FOR_DONE_TASK, addNameForTask });
+  };
 }
 
 export default myDoingText;

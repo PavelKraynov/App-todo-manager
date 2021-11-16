@@ -27,14 +27,10 @@ const DoneContainer = () => {
      dispatch(removeDoneCurrentText(removeText));
    };
    const moveTaskToDoing = (currentTask) => {
-
      dispatch(addInputTextDoing(currentTask));
-
      const removeText = arrayOfDoneTasks.filter(
        ({ id }) => id !== currentTask.id
-
      );
-
      dispatch(removeDoneCurrentText(removeText));
    };
 
